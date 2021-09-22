@@ -1,0 +1,16 @@
+body{
+    color:antiquewhite;
+}
+
+.allmovies{
+    margin-top: 20px;
+    margin-left: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    
+}
+
+
+
+

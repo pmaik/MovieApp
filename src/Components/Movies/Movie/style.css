@@ -1,0 +1,57 @@
+.parent{
+
+    height: 480px;
+    width:250px;
+    margin: 20px;
+    position:relative;
+}
+.child{
+    /* display: flex; */
+    margin-bottom: 40px;
+    margin-left: 10px;
+    margin-right: 20px;
+    text-align: left;
+    /* justify-content:space-between; */
+}
+button{
+    border: none;
+    background: none;
+}
+.moviePoster{
+    height: 350px;
+    width:250px;
+    box-shadow: 1px 1px 1px 1px #5c6063;
+    /* box-shadow: 1px 1px 1px 1px #2d3955; */
+    padding:0px;
+    border-radius: 2%;
+}
+.movieImg{
+    height: 350px;
+    width:250px;
+    border-radius: 2%;
+}
+
+
+h1{
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 1.5em;
+    /* width:300px; */
+}
+
+.child button{
+    width:80px;
+    margin-top: 0px;
+}
+/* .favButton{
+
+} */
+
+.favImg{
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    top: 238px;
+    left: 203px;
+}
+
