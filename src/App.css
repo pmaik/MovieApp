@@ -12,8 +12,9 @@ html, body {
   margin-left: 50px;
   color:antiquewhite;
   text-decoration: none;
-  font-size:30px;
+  font-size:40px;
   font-weight: bold;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 .search-add{

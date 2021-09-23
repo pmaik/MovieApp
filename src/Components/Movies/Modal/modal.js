@@ -5,7 +5,6 @@ import FocusTrap from 'focus-trap-react';
 import './modal.css';
 
 export const Modal = ({onKeyDown, modalRef, buttonRef, closeModal, movieInfo, reRender}) =>{
-    // console.log(reRender, "Modal component");
     return ReactDOM.createPortal(
             <FocusTrap>
                 <aside
@@ -38,8 +37,7 @@ export const Modal = ({onKeyDown, modalRef, buttonRef, closeModal, movieInfo, re
                         </div>
                     </div>
                 </aside>
-                </FocusTrap>,
-                document.body
+                </FocusTrap>, document.body
         );
 };
 export default Modal;

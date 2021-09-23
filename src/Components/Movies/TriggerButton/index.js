@@ -1,11 +1,11 @@
 import React from 'react';
-
+import '../style.css';
 
 const Trigger = ({ buttonRef, showModal }) => {
 
     return (
         <button
-            className="btn btn-lg btn-danger center modal-button"
+            className="btnEditt"
             ref={buttonRef}
             onClick={showModal}
         >

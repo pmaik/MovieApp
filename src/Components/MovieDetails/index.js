@@ -1,17 +1,54 @@
-import React from "react";
+import React from 'react';
+import axios from "axios";
 import './style.css';
 
 export default class MovieDetails extends React.Component{
 
-    // constructor(props){
-    //     super(props);
+    constructor(props){
+        super(props);
+        this.state = {
+            movieInfo:null,
+            btnContent:null
+        }
+        this.onClick = this.onClick.bind(this);
+    }
 
-    // }
+    async componentDidMount(){
+        try{
+            const response = await axios.get("http://localhost/movieCRUD/fetchOne.php", {params: {id:this.props.match.params.id}});
+            this.setState({ movieInfo: response.data});
+            this.setState({btnContent: response.data[0].Favorite});
+          } catch(error){
+              console.log(error.message);
+          }
+    }
+
+
+    async onClick(){
+        const {Favorite, id} = this.state.movieInfo[0];
+        this.setState({btnContent: this.state.btnContent==="1" ? "0" : "1"});
+
+        const obj = {
+            id:id,
+            Favorite:Favorite
+        };
+
+        await axios.post('http://localhost/movieCRUD/favorite.php', JSON.stringify(obj), {crossDomain: true})
+            .then(res => console.log(res.data))
+            .catch(error=>console.log(error.message))
+    }
+
 
     render(){
 
-        const {movieInfo} = this.props;
-        const {Title, Description, ImagePath, Cast} = movieInfo;
+        if(!this.state.movieInfo){
+            return(
+                <div>Loading...</div>
+            );
+        }
+
+        const {Title, Description, ImagePath, Cast} = this.state.movieInfo[0];
+        const {btnContent} = this.state;
 
         return(
             <div className = "container1">
@@ -38,7 +75,11 @@ export default class MovieDetails extends React.Component{
                         <hr/>
                     </div>
                 </div>
-                <button className="btn btnFav"> + Add to Favorite</button>
+
+                <button className="btn btnFav" onClick ={this.onClick} >
+                    {btnContent==="0"? "+ Add to Favorite" : "+ Remove form Favorite"}
+                </button>
+
             </div>
         );
     }

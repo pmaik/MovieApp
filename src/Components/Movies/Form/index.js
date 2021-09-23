@@ -1,34 +1,5 @@
-// import React from 'react';
-
-// export const Form = ({ onSubmit }) => {
-//   return (
-//     <form onSubmit={onSubmit}>
-//       <div className="form-group">
-//         <label htmlFor="name">Name</label>
-//         <input className="form-control" id="name" />
-//       </div>
-//       <div className="form-group">
-//         <label htmlFor="email">Email address</label>
-//         <input
-//           type="email"
-//           className="form-control"
-//           id="email"
-//           placeholder="name@example.com"
-//         />
-//       </div>
-//       <div className="form-group">
-//         <button className="form-control btn btn-primary" type="submit">
-//           Submit
-//         </button>
-//       </div>
-//     </form>
-//   );
-// };
-// export default Form;
-
 import React from "react";
 import axios from 'axios';
-// import './edit.css';
 
 export default class Form extends React.Component{
 
@@ -80,7 +51,6 @@ export default class Form extends React.Component{
             ImagePath: this.state.ImagePath,
             Cast: this.state.Cast
         };
-        // console.log(obj);
 
         await axios.post('http://localhost/movieCRUD/edit.php', JSON.stringify(obj), {crossDomain: true})
             .then(res => console.log(res.data))
@@ -88,13 +58,11 @@ export default class Form extends React.Component{
         
         this.reRender();
         this.closeModal();
-        // console.log("ReRender called");
     }
     
     render(){
 
         const {Title, Description, ImagePath, Cast} = this.state;
-        // console.log(movieInfo);
         
         return(
             <div className="addmovie">

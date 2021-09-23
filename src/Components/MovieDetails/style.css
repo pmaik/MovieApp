@@ -1,7 +1,8 @@
 .container1{
-    margin-top: 30px;
-    margin-left: 150px;
+    margin-top: 15px;
+    margin-left: 50px;
     color:aliceblue;
+    padding-bottom: 15px;
 }
 hr{
     border-top: 2px solid aliceblue;
@@ -66,6 +67,7 @@ h5{
 .btnFav{
     color:aliceblue;
     margin-top: 20px;
-    background-color: #354855;;
+    /* background-color: #354855; */
+    background-color: #DC3545;
     width:250px;
 }

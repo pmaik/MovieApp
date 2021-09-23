@@ -11,6 +11,16 @@ body{
     
 }
 
+.btnEditt{
+    font-size:x-large;
+    font-weight: 700;
+    color: #DC3545;
+    padding-left: 0px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
 
 
 

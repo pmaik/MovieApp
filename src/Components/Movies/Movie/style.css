@@ -21,7 +21,7 @@ button{
     height: 350px;
     width:250px;
     box-shadow: 1px 1px 1px 1px #5c6063;
-    /* box-shadow: 1px 1px 1px 1px #2d3955; */
+    /* box-shadow: 2px 2px 2px 2px #2d3955; */
     padding:0px;
     border-radius: 2%;
 }
@@ -29,8 +29,8 @@ button{
     height: 350px;
     width:250px;
     border-radius: 2%;
+    border-radius: 2%;
 }
-
 
 h1{
     margin-left: 10px;

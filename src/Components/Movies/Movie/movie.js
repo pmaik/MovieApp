@@ -1,18 +1,19 @@
 import React from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom'
+// import Button from '@material-ui/core/Button';
 import './style.css';
 import Edit from '../Edit/edit';
 import favStar from './starlight.png';
 import nfavStar from './star.png';
-// import MovieInfo from '../MovieInfo';
+
 
 export default class Movie extends React.Component{
-
+    
     constructor(props){
         super(props);
-        const {reRender, getMovieId} = this.props;
+        const {reRender} = this.props;
         this.reRender = reRender;
-        this.getMovieId = getMovieId;
         
         this.state = {
             fav:this.props.Favorite,
@@ -21,19 +22,16 @@ export default class Movie extends React.Component{
                 Title: this.props.Title,
                 Description: this.props.Description,
                 ImagePath: this.props.ImagePath,
-                Cast: this.props.Cast
+                Cast: this.props.Cast,
+                Favorite:this.props.Favorite
             }
         }
         this.onClick = this.onClick.bind(this);
-        this.onClickImg = this.onClickImg.bind(this);
-    }
-
-    onClickImg(){
-        this.getMovieId(this.state.movieInfo);
     }
 
     async onClick(){
         this.setState({fav: this.state.fav==="1" ? "0" : "1"});
+        
         const obj = {
             id:this.props.id,
             Favorite:this.state.fav
@@ -47,19 +45,26 @@ export default class Movie extends React.Component{
     }
 
     render(){
-        const {Title, ImagePath} = this.state.movieInfo;
+
+        const {id, Title, ImagePath} = this.state.movieInfo;
+
         return(
             <div className="parent">
-                <button className="moviePoster" onClick = {this.onClickImg}>
-                    <img className="movieImg" src={ImagePath} alt={Title}></img>
-                </button>
+                <Link className="moviePoster" to={`/moviedetails/${id}`} >
+                    <div className="moviePoster">
+                        <img className="movieImg" src={ImagePath} alt={Title}></img>
+                    </div>
+                </Link>
+
                 <h1>{Title}</h1>
+
                 <div className="child">
                     <Edit movieInfo={this.state.movieInfo} reRender={this.props.reRender}/>  
                     <button className="favButton" onClick = {this.onClick}>
                         <img className="favImg" src={this.state.fav === "1" ? favStar : nfavStar} alt="Star"></img>
                     </button>
                 </div>
+
             </div>
         );
     }

@@ -16,15 +16,16 @@ export default class Edit extends Component{
     showModal = () => {
         this.setState({ isShown: true }, () => {
           this.closeButton.focus();
-          //this.closeButton.triggerHandler("focus")
+          //this.closeButton.triggerHandler("focus");
         });
         this.toggleScrollLock();
     };
 
     closeModal = () => {
-        this.setState({ isShown: false });
+        this.setState({ isShown: false});
         this.TriggerButton.focus();
         this.toggleScrollLock();
+        // this.props.reRender();
     };
 
     onKeyDown = (event) => {
@@ -38,7 +39,6 @@ export default class Edit extends Component{
     };
 
     render(){
-        // console.log(this.props);
 
         return(
             <React.Fragment>
